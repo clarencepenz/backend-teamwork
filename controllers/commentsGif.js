@@ -1,0 +1,60 @@
+const db = require('../db');
+
+exports.getComments =  async (req, res, next) => {
+    try {
+        const results = await db.query("SELECT * FROM comments WHERE gif_id=$1", [ req.params.gif_id])
+        return res.json(results.rows)
+      } catch (err) {
+        return next(err);
+      } 
+      
+  } 
+
+
+  exports.getComment =  async (req, res, next) => {
+    try {
+        const results = await db.query("SELECT * FROM comments WHERE cid=$1", [ req.params.cid ])
+        return res.json(results.rows)
+      } catch (err) {
+        return next(err);
+      } 
+      
+  }
+
+  exports.deleteComment =  async (req, res, next) => {
+    try {
+        const result = await db.query("DELETE FROM comments WHERE cid=$1", [req.params.cid])
+            return res.json({ result: "Deleted" })
+          } catch (err) {
+            return next(err);
+          }
+      
+  }
+
+  exports.createComment =  async (req, res, next) => {
+    try {
+        const result = await db.query("INSERT INTO comments(comment, gif_id, author, author_id, avatar, date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *",
+         [req.body.comment, req.body.gif_id, req.body.author, req.body.author_id, req.body.avatar]);
+            return res.json(result.rows)
+          } catch (err) {
+            return next(err)
+          }
+      
+  }
+
+
+exports.updateComment =  async (req, res, next) => {
+        try {
+                const result = await db.query(
+                "UPDATE comments SET name=$1  WHERE id=$2 RETURNING *", [req.body.name, req.params.id]
+                )
+                return res.json(result.rows)
+            } catch (err) {
+                return next(err);
+            }
+          
+      }
+
+
+
+
