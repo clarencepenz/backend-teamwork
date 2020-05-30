@@ -32,7 +32,7 @@ CREATE TABLE comments (
     author_id integer,
     avatar character(255),
     date timestamp(4) with time zone,
-    id integer,
+    id integer NOT NULL,
     CONSTRAINT comments_pkey PRIMARY KEY (cid)
 );
 
