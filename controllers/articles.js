@@ -63,13 +63,12 @@ exports.getArticles =  async (req, res, next) => {
           res.status(400).json({
             status: 'error',
             error
-          });
+          }); 
         }
         res.status(201).json({
           status: 'success',
           data: {
             message: 'Article Created Successfully',
-            articleId: results.rows[0].pid,
             title,
             body, 
             author,
