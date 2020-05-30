@@ -1,3 +1,14 @@
+CREATE TABLE articles (
+    pid SERIAL PRIMARY KEY,
+    title VARCHAR(255),
+    body VARCHAR(255),
+    author VARCHAR(255),
+    author_id integer,
+    url VARCHAR(255),
+    date timestamp(4) with time zone
+);
+
+
 CREATE TABLE gifs (
     gid serial NOT NULL ,
     title character(255),
