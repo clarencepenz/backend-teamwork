@@ -16,9 +16,9 @@ const client = new Client({
   });
   
   client.connect()
-  .then(() => console.log('connected successfully'))
-  // .then(() => client.query( "select * FROM articles"))
-  // .then(results => console.table(results.rows))
-  .catch(e => console.log(e));
+  // .then(() => console.log('connected successfully'))
+  // // .then(() => client.query( "select * FROM articles"))
+  // // .then(results => console.table(results.rows))
+  // .catch(e => console.log(e));
 
   module.exports = client; 
