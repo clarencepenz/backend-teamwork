@@ -54,7 +54,7 @@ exports.getArticles =  async (req, res, next) => {
   }
 
 
-  exports.createComment =  async (req, res, next) => {
+  exports.createArticle =  async (req, res, next) => {
     try {
         const { title, body, author, author_id, url} = req.body;
         const result = await db.query( 'INSERT INTO articles (title, body, author, author_id, url, date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING pid',
