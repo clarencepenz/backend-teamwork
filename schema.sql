@@ -1,12 +1,11 @@
 CREATE TABLE articles (
-    pid serial NOT NULL,
+    pid serial PRIMARY KEY,
     title character(255),
     body character(255),
     author character(255),
     author_id integer,
     url character(255),
-    date timestamp(4) with time zone,
-    CONSTRAINT articles_pkey PRIMARY KEY (pid)
+    date timestamp(4) with time zone
 );
 
 
