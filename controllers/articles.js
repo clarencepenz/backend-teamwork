@@ -53,34 +53,46 @@ exports.getArticles =  async (req, res, next) => {
       
   }
 
-  exports.createArticle =  async (req, res, next) => {
-    const { title, body, author, author_id, url} = req.body;
-    db.query(
-      'INSERT INTO articles (title, body, author, author_id, url, date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING pid',
-      [title, body, author, author_id, url],
-      (error, results) => {
-        if (error) {
-          res.status(400).json({
-            status: 'error',
-            error
-          }); 
-        }
-        res.status(201).json({
-          status: 'success',
-          data: {
-            message: 'Article Created Successfully',
-            articleId: results.rows[0].pid,
-            title,
-            body, 
-            author,
-            author_id,
-            url
+
+  exports.createComment =  async (req, res, next) => {
+    try {
+        const { title, body, author, author_id, url} = req.body;
+        const result = await db.query( 'INSERT INTO articles (title, body, author, author_id, url, date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING pid',
+        [title, body, author, author_id, url]);
+            return res.json(result.rows)
+          } catch (err) {
+            return next(err)
           }
-        });
-      }
-    ); 
       
   }
+  // exports.createArticle =  async (req, res, next) => {
+  //   const { title, body, author, author_id, url} = req.body;
+  //   db.query(
+  //     'INSERT INTO articles (title, body, author, author_id, url, date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING pid',
+  //     [title, body, author, author_id, url],
+  //     (error, results) => {
+  //       if (error) {
+  //         res.status(400).json({
+  //           status: 'error',
+  //           error
+  //         }); 
+  //       }
+  //       res.status(201).json({
+  //         status: 'success',
+  //         data: {
+  //           message: 'Article Created Successfully',
+  //           articleId: results.rows[0].pid,
+  //           title,
+  //           body, 
+  //           author,
+  //           author_id,
+  //           url
+  //         }
+  //       });
+  //     }
+  //   ); 
+      
+  // }
 
 
 
