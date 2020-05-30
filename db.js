@@ -29,4 +29,4 @@ const client = new Client({
     client.end();
   });
 
-  module.exports = client; 
+  //module.exports = client; 
