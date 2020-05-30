@@ -6,7 +6,6 @@ CREATE TABLE articles (
     author_id integer,
     url character(255),
     date timestamp(4) with time zone,
-    id serial NOT NULL,
     CONSTRAINT articles_pkey PRIMARY KEY (pid)
 );
 
