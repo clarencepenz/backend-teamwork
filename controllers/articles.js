@@ -69,6 +69,7 @@ exports.getArticles =  async (req, res, next) => {
           status: 'success',
           data: {
             message: 'Article Created Successfully',
+            articleId: results.rows[0].pid,
             title,
             body, 
             author,
