@@ -4,10 +4,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-app.set('port', process.env.NODE_PORT);
+app.set('port', process.env.PORT);
 
 const server = http.createServer(app);
 
 
-server.listen(process.env.NODE_PORT || 5000);   
+server.listen(process.env.PORT || 5000);   
 
