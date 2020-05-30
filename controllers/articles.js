@@ -56,9 +56,8 @@ exports.getArticles =  async (req, res, next) => {
 
   exports.createArticle =  async (req, res, next) => {
     try {
-        const { title, body, author, author_id, url} = req.body;
         const result = await db.query( 'INSERT INTO articles (title, body, author, author_id, url, date) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING pid',
-        [title, body, author, author_id, url]);
+        [req.body.title, req.body.body, req.body.author, req.body.author_id, req.body.url]);
             return res.json(result.rows)
           } catch (err) {
             return next(err)
