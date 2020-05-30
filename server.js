@@ -9,5 +9,5 @@ app.set('port', process.env.NODE_PORT);
 const server = http.createServer(app);
 
 
-server.listen(process.env.NODE_PORT );   
+server.listen(process.env.NODE_PORT || 5000);   
 
