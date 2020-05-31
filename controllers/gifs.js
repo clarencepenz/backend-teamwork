@@ -17,9 +17,9 @@ app.use(fileUpload({
   }));
 
   cloudinary.config({
-    cloudinary_cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 'huwj1ufzc',
-    cloudinary_api_key: process.env.CLOUDINARY_API_KEY || '413813264741747',
-   cloudinary_api_secret: process.env.CLOUDINARY_API_SECRET || 'iLTaIcuRVRQdpW2EmAieWviWmBs',
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME || 'huwj1ufzc',
+    api_key: process.env.CLOUDINARY_API_KEY || '413813264741747',
+  api_secret: process.env.CLOUDINARY_API_SECRET || 'iLTaIcuRVRQdpW2EmAieWviWmBs',
    cloudinary_url: process.env.CLOUDINARY_URL
 });
 
