@@ -22,6 +22,8 @@ app.use(fileUpload({
     api_secret: 'iLTaIcuRVRQdpW2EmAieWviWmBs'
 });
 
+console.log( cloudinary.config)
+
 
 exports.getGifs =  async (req, res, next) => {
     try {
