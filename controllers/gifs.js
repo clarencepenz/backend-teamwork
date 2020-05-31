@@ -1,7 +1,6 @@
 const db = require('../db');
-const cloudinary = require('cloudinary').v2;
+const cloudinary = require('../middleware/cloudinary').v2;
 const bodyParser = require('body-parser');
-
 const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -16,14 +15,14 @@ app.use(fileUpload({
     useTempFiles: true
   }));
 
-  cloudinary.config({
-    cloud_name: 'huwj1ufzc',
-    api_key: 413813264741747,
-    api_secret: 'iLTaIcuRVRQdpW2EmAieWviWmBs',
-    cloudinary_url: process.env.CLOUDINARY_URL
-});
+//   cloudinary.config({
+//     cloud_name: 'huwj1ufzc',
+//     api_key: 413813264741747,
+//     api_secret: 'iLTaIcuRVRQdpW2EmAieWviWmBs',
+//     cloudinary_url: process.env.CLOUDINARY_URL
+// });
 
-console.log( cloudinary.config.api_key)
+console.log( cloudinary)
 
 
 exports.getGifs =  async (req, res, next) => {
