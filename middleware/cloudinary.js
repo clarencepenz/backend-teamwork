@@ -4,9 +4,7 @@ dotenv.config();
 
 
 cloudinary.config({
-    cloud_name: 'huwj1ufzc',
-    api_key: '413813264741747',
-    api_secret: 'iLTaIcuRVRQdpW2EmAieWviWmBs'
+    cloudinary_url: process.env.CLOUDINARY_URL
 });
 
 module.exports = cloudinary;
