@@ -17,9 +17,7 @@ app.use(fileUpload({
   }));
 
   cloudinary.config({
-    cloud_name: 'huwj1ufzc',
-    api_key: '413813264741747',
-    api_secret: 'iLTaIcuRVRQdpW2EmAieWviWmBs'
+    connectionString: process.env.CLOUDINARY_URL
 });
 
 
