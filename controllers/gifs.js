@@ -17,7 +17,7 @@ app.use(fileUpload({
   }));
 
   cloudinary.config({
-    CLOUDINARY_URL: process.env.CLOUDINARY_URL
+    cloudinary_url: process.env.CLOUDINARY_URL
   })
 
 
