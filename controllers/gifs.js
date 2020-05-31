@@ -17,8 +17,10 @@ app.use(fileUpload({
   }));
 
   cloudinary.config({
-    connectionString: process.env.CLOUDINARY_URL
-  })
+    cloud_name: 'huwj1ufzc',
+    api_key: '413813264741747',
+    api_secret: 'iLTaIcuRVRQdpW2EmAieWviWmBs'
+});
 
 
 exports.getGifs =  async (req, res, next) => {
