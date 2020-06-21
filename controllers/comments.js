@@ -43,17 +43,18 @@ exports.getComments =  async (req, res, next) => {
   }
 
 
-exports.updateComment =  async (req, res, next) => {
-        try {
-                const result = await db.query(
-                "UPDATE comments SET name=$1  WHERE id=$2 RETURNING *", [req.body.name, req.params.id]
-                )
-                return res.json(result.rows)
-            } catch (err) {
-                return next(err);
-            }
-          
-      }
+
+  exports.updateComment =  async (req, res, next) => {
+    try {
+            const result = await db.query(
+            "UPDATE comments SET avatar=$1  WHERE author_id=$2 RETURNING *", [req.body.avatar, req.params.author_id]
+            )
+            return res.json(result.rows)
+        } catch (err) {
+            return next(err);
+        }
+      
+  }
 
 
 
